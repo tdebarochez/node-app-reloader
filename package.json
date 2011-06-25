@@ -1,0 +1,26 @@
+{
+  "name": "node-app-reloader",
+  "description": "restart node app on file modification",
+  "keywords": [
+    "restart",
+    "file observing"
+  ],
+  "version": "1.0.0",
+  "author": "Thomas Debarochez <thomas.barochez+npm@gmail.com>",
+  "main": "./observer.js",
+  "dependencies": {},
+  "engines": {
+    "node": ">= 0.4.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tdebarochez/node-app-reloader.git"
+  },
+  "directories": {
+    "lib": "."
+  },
+  "files": [
+    ""
+  ],
+  "bin": { "node-app-reloader": "./observer.js" }
+}

@@ -38,7 +38,7 @@ process.argv.forEach(function (arg) {
 if (args.length < 1
    || !double_dashes
    || process.argv.length < 4) {
-  process.stderr.write('Usage: observer [node-options] script.js -- files\n');
+  process.stderr.write('Usage: node-app-reloader [node-options] script.js -- files\n');
   process.exit(1); 
 }
 

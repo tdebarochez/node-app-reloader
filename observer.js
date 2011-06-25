@@ -15,6 +15,9 @@ process.stdin.setEncoding('utf8');
 process.stdin.on('data', function (chunk) {
   watch(chunk.split('\n'));
 });
+process.stdin.on('close', function () {
+  start();
+});
 
 process.argv.forEach(function (arg) {
   if (++i < 3) {
@@ -40,7 +43,9 @@ if (args.length < 1
 }
 
 watch(files);
-setTimeout(start, 100);
+if (files.length > 0) {
+  start();
+}
 
 function reload() {
   stop();
@@ -55,6 +60,10 @@ function stop() {
 }
 
 function start() {
+  if (child !== null
+      && !child.killed) {
+    return;
+  }
   var opts = {customFds: [process.stdin, process.stdout, process.stderr],
               cwd: process.cwd()};
   child = spawn('node', args, opts);

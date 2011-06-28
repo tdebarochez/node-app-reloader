@@ -61,7 +61,8 @@ function stop() {
 
 function start() {
   if (child !== null
-      && !child.killed) {
+      && !child.killed
+      && child.pid > 0) {
     return;
   }
   var opts = {customFds: [process.stdin, process.stdout, process.stderr],
